@@ -56,7 +56,7 @@ class BertConfig(object):
                max_position_embeddings=512,
                type_vocab_size=2,
                initializer_range=0.02):
-    """Constructs AlbertConfig.
+    """Constructs BertConfig.
 
     Args:
       vocab_size: Vocabulary size of `inputs_ids` in `AlbertModel`.
@@ -103,15 +103,15 @@ class BertConfig(object):
 
   @classmethod
   def from_dict(cls, json_object):
-    """Constructs a `AlbertConfig` from a Python dictionary of parameters."""
-    config = AlbertConfig(vocab_size=None)
+    """Constructs a `BertConfig` from a Python dictionary of parameters."""
+    config = BertConfig(vocab_size=None)
     for (key, value) in six.iteritems(json_object):
       config.__dict__[key] = value
     return config
 
   @classmethod
   def from_json_file(cls, json_file):
-    """Constructs a `AlbertConfig` from a json file of parameters."""
+    """Constructs a `BertConfig` from a json file of parameters."""
     with tf.gfile.GFile(json_file, "r") as reader:
       text = reader.read()
     return cls.from_dict(json.loads(text))
@@ -137,7 +137,7 @@ class AlbertModel(object):
   input_mask = tf.constant([[1, 1, 1], [1, 1, 0]])
   token_type_ids = tf.constant([[0, 0, 1], [0, 2, 0]])
 
-  config = modeling.AlbertConfig(vocab_size=32000, hidden_size=512,
+  config = modeling.BertConfig(vocab_size=32000, hidden_size=512,
     num_hidden_layers=8, num_attention_heads=6, intermediate_size=1024)
 
   model = modeling.AlbertModel(config=config, is_training=True,
@@ -162,7 +162,7 @@ class AlbertModel(object):
     """Constructor for AlbertModel.
 
     Args:
-      config: `AlbertConfig` instance.
+      config: `BertConfig` instance.
       is_training: bool. true for training model, false for eval model. Controls
         whether dropout will be applied.
       input_ids: int32 Tensor of shape [batch_size, seq_length].
