@@ -35,7 +35,7 @@ from tensorflow.contrib import layers as contrib_layers
 
 
 class BertConfig(object):
-  """Configuration for `AlbertModel`.
+  """Configuration for `BertModel`.
 
   The default settings match the configuration of model `albert_xxlarge`.
   """
@@ -59,7 +59,7 @@ class BertConfig(object):
     """Constructs BertConfig.
 
     Args:
-      vocab_size: Vocabulary size of `inputs_ids` in `AlbertModel`.
+      vocab_size: Vocabulary size of `inputs_ids` in `BertModel`.
       embedding_size: size of voc embeddings.
       hidden_size: Size of the encoder layers and the pooler layer.
       num_hidden_layers: Number of hidden layers in the Transformer encoder.
@@ -81,7 +81,7 @@ class BertConfig(object):
         ever be used with. Typically set this to something large just in case
         (e.g., 512 or 1024 or 2048).
       type_vocab_size: The vocabulary size of the `token_type_ids` passed into
-        `AlbertModel`.
+        `BertModel`.
       initializer_range: The stdev of the truncated_normal_initializer for
         initializing all weight matrices.
     """
@@ -126,7 +126,7 @@ class BertConfig(object):
     return json.dumps(self.to_dict(), indent=2, sort_keys=True) + "\n"
 
 
-class AlbertModel(object):
+class BertModel(object):
   """BERT model ("Bidirectional Encoder Representations from Transformers").
 
   Example usage:
@@ -140,7 +140,7 @@ class AlbertModel(object):
   config = modeling.BertConfig(vocab_size=32000, hidden_size=512,
     num_hidden_layers=8, num_attention_heads=6, intermediate_size=1024)
 
-  model = modeling.AlbertModel(config=config, is_training=True,
+  model = modeling.BertModel(config=config, is_training=True,
     input_ids=input_ids, input_mask=input_mask, token_type_ids=token_type_ids)
 
   label_embeddings = tf.get_variable(...)
@@ -159,7 +159,7 @@ class AlbertModel(object):
                use_one_hot_embeddings=False,
                use_einsum=True,
                scope=None):
-    """Constructor for AlbertModel.
+    """Constructor for BertModel.
 
     Args:
       config: `BertConfig` instance.
