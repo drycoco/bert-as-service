@@ -22,7 +22,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'numpy',
-        'six',
+        'six==1.12.0',
         'pyzmq>=17.1.0',
         'GPUtil>=1.3.0',
         'termcolor>=1.1'
