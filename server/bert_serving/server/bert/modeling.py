@@ -34,7 +34,7 @@ import tensorflow.compat.v1 as tf
 from tensorflow.contrib import layers as contrib_layers
 
 
-class AlbertConfig(object):
+class BertConfig(object):
   """Configuration for `AlbertModel`.
 
   The default settings match the configuration of model `albert_xxlarge`.
