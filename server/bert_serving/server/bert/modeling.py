@@ -157,6 +157,7 @@ class BertModel(object):
                input_mask=None,
                token_type_ids=None,
                use_one_hot_embeddings=False,
+               use_position_embeddings=True,
                use_einsum=True,
                scope=None):
     """Constructor for BertModel.
