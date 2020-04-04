@@ -550,7 +550,7 @@ class BertWorker(Process):
             # Windows does not support logger in MP environment, thus get a new logger
             # inside the process for better compatibility
             logger = set_logger(colored('WORKER-%d' % self.worker_id, 'yellow'), self.verbose)
-            tokenizer = FullTokenizer(vocab_file=os.path.join(self.model_dir, 'vocab.txt'), do_lower_case=self.do_lower_case, spm_model_file=os.path.join(self.model_dir, '30k-clean.model')
+            tokenizer = FullTokenizer(vocab_file=os.path.join(self.model_dir, 'vocab.txt'), do_lower_case=self.do_lower_case, spm_model_file=os.path.join(self.model_dir, '30k-clean.model'))
 
             poller = zmq.Poller()
             for sock in socks:
